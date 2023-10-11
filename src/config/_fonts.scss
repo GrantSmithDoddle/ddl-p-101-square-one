@@ -1,0 +1,15 @@
+@forward '../../node_modules/@doddle-agency/doddle-base/01_abstracts/font';
+
+$primary: Verdana, Geneva, Tahoma, sans-serif;
+// $monospace: monospace;
+// $render-mode: optimizeLegibility;
+
+// EXAMPLE:
+// Use the below example to replace !default variable values in base
+// @forward '../../node_modules/@doddle-agency/doddle-base/01_abstracts/fonts' with (
+//     $base: 20px,
+//     $light: 200,
+//     $normal: 300,
+//     $semi: 400,
+//     $bold: 800
+// );

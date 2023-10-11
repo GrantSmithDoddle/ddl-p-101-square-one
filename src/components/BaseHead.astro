@@ -1,0 +1,65 @@
+---
+import data from '../data/companyData.json';
+import Schema from '../components/schema.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonicalURL?: URL | string;
+  image?: string;
+  alt?: string;
+  latitude?: string;
+  longitude?: string;
+  companyTagline?: string;
+}
+
+const title = Astro.props.title || data.metaTitle;
+const description = Astro.props.description || data.metaDescription;
+const canonicalURL = Astro.props.canonicalURL || new URL(Astro.url.pathname, Astro.site);
+const image = new URL(Astro.props.image || './social-share-img.png', Astro.site);
+const alt = Astro.props.alt || data.metaImageAlt;
+const latitude = data.latitude;
+const longitude = data.longitude;
+---
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width' />
+<link rel='icon' type='image/png' href='/favicon.ico' />
+<title>{title} | {data.companyTagline}</title>
+<meta name='robots' content='follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large' />
+<meta name='title' content=`${title} | ${data.companyTagline}`/>
+<meta name='description' content={description} />
+<link rel='canonical' href={canonicalURL} />
+<meta name='copyright' content=`${data.companyName} | ${data.companyTagline}` />
+<meta name='publisher' content=`${data.companyName} | ${data.companyTagline}` />
+<meta name='author' content='Doddle Agency Ltd - hello@doddle.agency' />
+<meta name='geo.region' content='GB-BRISTOL' />
+<meta name='geo.placename' content='Bristol' />
+<meta name='geo.position' content={`${latitude}, ${longitude}`} />
+<meta name='ICBM' content={`${latitude}, ${longitude}`} />
+<meta name='theme-color' content='#1e1a34' />
+<meta property='og:locale' content='en_GB' />
+<meta property='og:type' content='website' />
+<meta property='og:url' content={canonicalURL} />
+<meta property='og:title' content=`${title} | ${data.companyTagline}` />
+<meta property='og:description' content={description} />
+<meta property='og:image' content={image} />
+<meta property='og:image:alt' content={alt} />
+<meta property='twitter:card' content='summary_large_image' />
+<meta property='twitter:url' content={canonicalURL} />
+<meta property='twitter:title' content=`${title} | ${data.companyTagline}` />
+<meta property='twitter:description' content={description} />
+<meta property='twitter:image' content={image} />
+<link rel="sitemap" href="/sitemap.xml" />
+<Schema {...data} />
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-TGZ44X3');
+</script>

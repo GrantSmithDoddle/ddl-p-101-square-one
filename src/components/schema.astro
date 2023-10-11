@@ -1,0 +1,58 @@
+---
+ export interface Props {
+  companyName?: string;
+  URL?: URL | string;
+  metaDescription?: string;
+  contactPhoneDisplay?: string;
+  addressStreet?: string;
+  addressCity?: string;
+  addressCounty?: string;
+  addressPostcode?: string;
+  gmapLatitude?: string;
+  gmapLongitude?: string;
+}
+
+const { companyName, URL, metaDescription, contactPhoneDisplay, addressStreet, addressCity, addressCounty, addressPostcode, gmapLatitude, gmapLongitude }: Props = Astro.props as Props;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  'name': companyName,
+  'url': URL,
+  'logo': `${URL}/Doddle-Brand-Logo.svg`,
+  'image': `${URL}/social-share-img.png`,
+  'description': metaDescription,
+  'telephone': contactPhoneDisplay,
+  'address': {
+    '@type': 'PostalAddress',
+    'streetAddress': addressStreet,
+    'addressLocality': addressCity,
+    'addressRegion': addressCounty,
+    'postalCode': addressPostcode,
+    'addressCountry': 'GB'
+  },
+  'geo': {
+    '@type': 'GeoCoordinates',
+    'latitude': gmapLatitude,
+    'longitude': gmapLongitude
+  },
+  'openingHoursSpecification': {
+    '@type': 'OpeningHoursSpecification',
+    'dayOfWeek': [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday'
+    ],
+    'opens': '09:00',
+    'closes': '17:00'
+  },
+  'contactPoint': {
+    '@type': 'ContactPoint',
+    'telephone': contactPhoneDisplay,
+    'contactType': 'Customer Service'
+  }
+}
+---
+<script type='application/ld+json' set:html={JSON.stringify(jsonLd)}></script>
