@@ -1,1 +1,66 @@
-<h1>Footer</h1>
+---
+import { Image } from 'astro:assets';
+import Logo from '../img/Square-One-Brand-Icon-Grey.svg';
+
+export interface Props {
+  alt?: string;
+  companyName?: string;
+  companyTagline?: string;
+}
+
+const { alt, companyName, companyTagline } = Astro.props as Props;
+---
+<footer>
+  <div class="signoff">
+    <div class="row">
+      <div class="col-6">
+        <a href='/' title='Return to Homepage'>
+          <Image src={ Logo } alt={ alt } width='30' height='50' loading="lazy"/>
+        </a>
+        <p>
+          All rights reserved&nbsp;&copy;&nbsp;{ new Date().getFullYear() }&nbsp;{ companyName },&nbsp;{ companyTagline }
+        </p>
+      </div>
+      <div class="col-6">
+        <script src="//app.doddle.agency/builtby.js" defer></script>
+        <built-by></built-by>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use '../config/colour';
+  @use '../config/breakpoints';
+  @use '../config/fonts';
+
+  .signoff {
+    background-color: colour.$secondary;
+    color: colour.$grey-light;
+    padding-block: 1rem;
+
+    .col-6 {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      &:first-child {
+        gap: 1rem;
+        justify-content: flex-start;
+      }
+
+      &:last-child {
+        justify-content: center;
+
+        @include breakpoints.breakpoint(ipadPro) {
+          justify-content: flex-end;
+        }
+      }
+
+      p {
+        font-size: fonts.$size-2;
+        font-weight: fonts.$medium;
+      }
+    }
+  }
+</style>

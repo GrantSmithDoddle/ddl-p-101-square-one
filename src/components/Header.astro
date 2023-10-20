@@ -1,1 +1,81 @@
-<h1>Header</h1>
+---
+import { Image } from 'astro:assets';
+import LogoMobile from '../img/Square-One-Brand-Icon-Green.svg';
+import LogoDesktop from '../img/Square-One-Brand-Logo.svg';
+
+export interface Props {
+  alt?: string;
+  phone?: string;
+}
+
+const { alt, phone } = Astro.props as Props;
+---
+<header>
+  <div class="row">
+    <div class="col-6">
+      <a href='/' title='Return to Homepage' class='navbar-logo-mobile'>
+        <Image src={ LogoMobile } alt={ alt } width='46.6' height='80' loading="lazy"/>
+      </a>
+      <a href='/' title='Return to Homepage' class='navbar-logo-desktop'>
+        <Image src={ LogoDesktop } alt={ alt } width='200' height='80' loading="lazy"/>
+      </a>
+    </div>
+    <div class="col-6">
+      <h1 class="tagline">Sash Window Renovations</h1>
+      <a href=`tel:${ phone }` class="button primary">Call Us</a>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  @use '../config/colour';
+  @use '../config/breakpoints';
+  @use '../config/fonts';
+
+  header {
+    .row {
+      padding-block: 1rem;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .col-6 {
+        &:last-child {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 1rem;
+        }
+
+        .tagline {
+          font-family: fonts.$secondary;
+          font-size: fonts.$size-4;
+          color: colour.$secondary;
+          letter-spacing: 1.5px;
+          display: none;
+
+          @include breakpoints.breakpoint(ipadPro) {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .navbar-logo-mobile {
+      display: block;
+
+      @include breakpoints.breakpoint(ipadPro) {
+        display: none;
+      }
+    }
+
+    .navbar-logo-desktop {
+      display: none;
+
+      @include breakpoints.breakpoint(ipadPro) {
+        display: block;
+      }
+    }
+  }
+</style>

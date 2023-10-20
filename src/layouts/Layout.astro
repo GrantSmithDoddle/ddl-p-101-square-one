@@ -1,4 +1,6 @@
 ---
+import data from '../data/companyData.json';
+
 import type { Props as BaseHeadProps } from '../components/BaseHead.astro';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
@@ -8,10 +10,14 @@ import '../styles/base.scss';
 import '../styles/critical.scss';
 
 export interface Props {
+  companyName?: string;
+  companyTagline?: string;
+  metaImageAlt?: string;
+  phone?: string;
   seo?: BaseHeadProps;
 }
 
-const { seo } = Astro.props;
+const { companyName, companyTagline, metaImageAlt, phone, seo} = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -21,10 +27,17 @@ const { seo } = Astro.props;
   </head>
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGZ44X3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <Header />
+    <Header
+      alt={data.metaImageAlt}
+      phone={data.phone}
+    />
     <main id='main'>
       <slot />
     </main>
-    <Footer />
+    <Footer
+      alt={data.metaImageAlt}
+      companyName={data.companyName}
+      companyTagline={data.companyTagline}
+    />
   </body>
 </html>

@@ -1,0 +1,7 @@
+@use '../../config/colour';
+@use '../../config/fonts';
+
+p {
+  font-size: fonts.$size-3;
+  line-height: fonts.$tight;
+}
