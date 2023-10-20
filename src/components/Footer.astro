@@ -3,14 +3,34 @@ import { Image } from 'astro:assets';
 import Logo from '../img/Square-One-Brand-Icon-Grey.svg';
 
 export interface Props {
+  addressLine1?: string;
+  addressLine2?: string;
   alt?: string;
+  city?: string;
   companyName?: string;
   companyTagline?: string;
+  email?: string;
+  phone?: string;
+  postcode?: string;
 }
 
-const { alt, companyName, companyTagline } = Astro.props as Props;
+const { addressLine1, addressLine2, alt, city, companyName, companyTagline, email, phone, postcode, } = Astro.props as Props;
 ---
 <footer>
+  <div class="row">
+    <div class="col-4 flow">
+      <span class="contact-head">
+        <h3>{ companyName }</h3>
+        <h4>{ companyTagline }</h4>
+      </span>
+      <p>{ addressLine1 },&nbsp;{ addressLine2 },&nbsp;{ city }&nbsp;{ postcode }</p>
+      <p><span class="tel">Telephone</span>: <a href={`tel:${ phone }`} title={`Phone ${ phone }`}>Phone</a></p>
+      <a href={`mailto:${ email }`} title={`Email ${ companyName }`} class="button primary">Email</a>
+    </div>
+    <div class="col-4"></div>
+    <div class="col-4"></div>
+    <div class="col-4"></div>
+  </div>
   <div class="signoff">
     <div class="row">
       <div class="col-6">
@@ -34,32 +54,44 @@ const { alt, companyName, companyTagline } = Astro.props as Props;
   @use '../config/breakpoints';
   @use '../config/fonts';
 
-  .signoff {
-    background-color: colour.$secondary;
-    color: colour.$grey-light;
-    padding-block: 1rem;
-
-    .col-6 {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      &:first-child {
-        gap: 1rem;
-        justify-content: flex-start;
+  footer {
+    .contact-head {
+      h4 {
+        line-height: fonts.$loose;
       }
+    }
 
-      &:last-child {
-        justify-content: center;
+    .tel {
+      font-weight: fonts.$bold;
+    }
 
-        @include breakpoints.breakpoint(ipadPro) {
-          justify-content: flex-end;
+    .signoff {
+      background-color: colour.$secondary;
+      color: colour.$grey-light;
+      padding-block: 1rem;
+
+      .col-6 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &:first-child {
+          gap: 1rem;
+          justify-content: flex-start;
         }
-      }
 
-      p {
-        font-size: fonts.$size-2;
-        font-weight: fonts.$medium;
+        &:last-child {
+          justify-content: center;
+
+          @include breakpoints.breakpoint(ipadPro) {
+            justify-content: flex-end;
+          }
+        }
+
+        p {
+          font-size: fonts.$size-2;
+          font-weight: fonts.$medium;
+        }
       }
     }
   }

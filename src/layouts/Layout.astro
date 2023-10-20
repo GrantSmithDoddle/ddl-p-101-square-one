@@ -10,14 +10,19 @@ import '../styles/base.scss';
 import '../styles/critical.scss';
 
 export interface Props {
+  addressLine1?: string;
+  addressLine2?: string;
+  city?: string;
   companyName?: string;
   companyTagline?: string;
+  email?: string;
   metaImageAlt?: string;
   phone?: string;
+  postcode?: string;
   seo?: BaseHeadProps;
 }
 
-const { companyName, companyTagline, metaImageAlt, phone, seo} = Astro.props as Props;
+const { addressLine1, addressLine2, city, companyName, companyTagline, email, metaImageAlt, phone, postcode, seo } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -35,9 +40,15 @@ const { companyName, companyTagline, metaImageAlt, phone, seo} = Astro.props as 
       <slot />
     </main>
     <Footer
+      addressLine1={data.addressLine1}
+      addressLine2={data.addressLine2}
       alt={data.metaImageAlt}
+      city={data.city}
       companyName={data.companyName}
       companyTagline={data.companyTagline}
+      email={data.email}
+      phone={data.phone}
+      postcode={data.postcode}
     />
   </body>
 </html>
