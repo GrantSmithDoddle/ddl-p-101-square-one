@@ -7,7 +7,7 @@ import robotsTxt from 'astro-robots-txt';
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
-  site: 'https://squareonerenovations.co.uk',
+  site: 'https://www.squareonerenovation.com',
   sitemap: true,
   integrations: [sitemap(), robotsTxt()],
   output: 'static',

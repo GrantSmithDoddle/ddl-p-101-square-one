@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ab4419d7-8752-4a92-af84-9e38aff0c826/deploy-status)](https://app.netlify.com/sites/stately-horse-a5dce6/deploys)
+
 # Astro Starter Kit: Basics
 
 ```sh
