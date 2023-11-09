@@ -1,7 +1,45 @@
 @use '../../config/colour';
 @use '../../config/fonts';
 
+.h1,
+.h2,
+.h3,
+.h4 {
+  font-weight: fonts.$semi;
+  line-height: fonts.$flat;
+}
+
+.h1 {
+  font-family: fonts.$secondary;
+  font-size: fonts.$size-8;
+  letter-spacing: 1px;
+}
+
+.h2 {
+  font-size: fonts.$size-7;
+}
+
+.h3 {
+  font-size: fonts.$size-6;
+}
+
+.h4 {
+  font-size: fonts.$size-5;
+}
+
 p {
+  font-size: fonts.$size-4;
+  line-height: fonts.$tight;
+}
+
+.title {
+  color: colour.$primary;
+  font-size: fonts.$size-7;
+  font-family: fonts.$secondary;
+  letter-spacing: 1px;
+}
+
+.small {
   font-size: fonts.$size-3;
   line-height: fonts.$tight;
 }

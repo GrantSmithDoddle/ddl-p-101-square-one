@@ -1,0 +1,9 @@
+$paddingAmount: 6rem;
+
+section:not([class]) {
+  padding-block: $paddingAmount;
+}
+
+.about {
+  padding-block: $paddingAmount;
+}

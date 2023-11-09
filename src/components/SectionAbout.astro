@@ -1,0 +1,39 @@
+---
+---
+<section class="about flow">
+  <div class="row">
+    <div class="col-12">
+      <h3 class="title">About Square One</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 flow">
+      <p>Kieron didn't come to this point in his life via traditional college/building apprenticeship routes. He'd followed various passions around the world, tried a few different things from bar work to music to travel, and spent a long time as a professional model-maker working with tiny, intricate detail and accuracy. And he fell into the world of construction almost by chance when he wanted a change of direction (and his money ran out).</p>
+      <p>But he stood out on any site very quickly because of his attention to detail, his craftsmanship. He came to realise he had a flair for reconstucting things, he was interested in how things were originally constructed and found his dexterity with intricate objects took him down a new path.</p>
+      <p>Jim brings to any project a creative eye. He's a working artist with an instinct for layout and form that takes the direction of any project in harmony with a room's shape and size and in keeping with its history.</p>
+      <p>The rest of the team is formed of trusted craftsmen, builders, decorators, restorers and project managers, each is brought in at the right time for a project and contributes something from his or her own expertise.</p>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../config/breakpoints';
+  @use '../config/colour';
+
+  .about {
+    background-color: colour.$grey-very-light;
+    .row {
+      .col-12 {
+        &:last-child {
+          column-count: 1;
+          orphans: 5;
+          gap: 3rem;
+
+          @include breakpoints.breakpoint(ipadPro){
+            column-count: 2;
+          }
+        }
+      } 
+    }
+  }
+</style>

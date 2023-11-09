@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import Logo from '../img/Square-One-Brand-Icon-Grey.svg';
+import Logo from '../images/Square-One-Brand-Icon-Grey.svg';
 
 export interface Props {
   addressLine1?: string;
@@ -17,19 +17,35 @@ export interface Props {
 const { addressLine1, addressLine2, alt, city, companyName, companyTagline, email, phone, postcode, } = Astro.props as Props;
 ---
 <footer>
-  <div class="row">
-    <div class="col-4 flow">
-      <span class="contact-head">
-        <h3>{ companyName }</h3>
-        <h4>{ companyTagline }</h4>
-      </span>
-      <p>{ addressLine1 },&nbsp;{ addressLine2 },&nbsp;{ city }&nbsp;{ postcode }</p>
-      <p><span class="tel">Telephone</span>: <a href={`tel:${ phone }`} title={`Phone ${ phone }`}>Phone</a></p>
-      <a href={`mailto:${ email }`} title={`Email ${ companyName }`} class="button primary">Email</a>
+  <div class="full-with-split-screen">
+    <div class="col-left">
+      <div id='map'></div>
+      <script>
+        mapboxgl.accessToken = import.meta.env.PUBLIC_MAPBOXKEY;
+        
+        const lng = -2.574610;
+        const lat = 51.481730;
+
+        var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/light-v10',
+          center: [ lng, lat ],
+          zoom: 13
+        });
+
+        const marker = new mapboxgl.Marker({
+          color: "#558996",
+          draggable: true
+          }).setLngLat([lng, lat])
+          .addTo(map);
+      </script>
     </div>
-    <div class="col-4"></div>
-    <div class="col-4"></div>
-    <div class="col-4"></div>
+    <div class="col-right flow">
+      <h2 class="title">Contact Us</h2>
+      <p class="small">It costs nothing to start a conversation.</p>
+      <p class="small">We'd love to find out more about you and your own project. Please feel comfortable to pick up the phone or drop us a line, with no obligation - we won’t give you any hard-sell, that’s not our style. We just love getting excited about the possibilities in bringing a building back to its former glory - whether that’s Edwardian, Georgian, Victorian, Regency - even the 1960s!</p>
+      <a href=`mailto:${ email }` title={`Email ${ companyName }`} class="button primary solid fw-mobile">Request an Estimate</a>
+    </div>
   </div>
   <div class="signoff">
     <div class="row">
@@ -51,18 +67,56 @@ const { addressLine1, addressLine2, alt, city, companyName, companyTagline, emai
 
 <style lang="scss">
   @use '../config/colour';
+  @use '../config/core';
   @use '../config/breakpoints';
   @use '../config/fonts';
 
+  $wrapper-padding-large: 2rem;
+
   footer {
-    .contact-head {
-      h4 {
-        line-height: fonts.$loose;
+    padding-block: 0rem;
+
+    .full-with-split-screen {
+      @include breakpoints.breakpoint(ipadPro){
+        display: grid;
+        grid-template-columns:
+          minmax($wrapper-padding-large, 1fr)
+          minmax(0, calc(core.$max-width-desktop / 2))
+          minmax(0, calc(core.$max-width-desktop / 2))
+          minmax($wrapper-padding-large, 1fr);
+      }
+
+      .col-left {
+        @include breakpoints.breakpoint(ipadPro){
+          grid-column: 1 / 3;
+          grid-row: 1;
+        }
+      }
+
+      .col-right {
+        padding-inline: 1rem;
+        padding-block: 4rem;
+
+        @include breakpoints.breakpoint(ipadPro){
+          display: grid;
+          grid-column: 3 / 4;
+          grid-row: 1;
+          align-content: center;
+          justify-items: start;
+          padding-inline-start: 3rem;
+          padding-inline-end: clamp(1rem, 5vw, 3rem);
+          padding-block: 6rem;
+        }
       }
     }
 
-    .tel {
-      font-weight: fonts.$bold;
+    #map {
+      width: 100%;
+      height: 300px;
+
+      @include breakpoints.breakpoint(ipadPro){
+        height: 100%;
+      }
     }
 
     .signoff {

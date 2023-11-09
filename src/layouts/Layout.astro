@@ -4,6 +4,11 @@ import data from '../data/companyData.json';
 import type { Props as BaseHeadProps } from '../components/BaseHead.astro';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
+import Intro from '../components/Intro.astro';
+import SectionOne from '../components/SectionOne.astro';
+import SectionBoxed from '../components/SectionBoxed.astro';
+import PhotoDivider from '../components/PhotoDivider.astro';
+import SectionAbout from '../components/SectionAbout.astro';
 import Footer from '../components/Footer.astro';
 
 import '../styles/base.scss';
@@ -16,13 +21,15 @@ export interface Props {
   companyName?: string;
   companyTagline?: string;
   email?: string;
+  latitude?: string;
+  longitude?: string;
   metaImageAlt?: string;
   phone?: string;
   postcode?: string;
   seo?: BaseHeadProps;
 }
 
-const { addressLine1, addressLine2, city, companyName, companyTagline, email, metaImageAlt, phone, postcode, seo } = Astro.props as Props;
+const { addressLine1, addressLine2, city, companyName, companyTagline, email, latitude, longitude, metaImageAlt, phone, postcode, seo } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -34,10 +41,18 @@ const { addressLine1, addressLine2, city, companyName, companyTagline, email, me
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGZ44X3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <Header
       alt={data.metaImageAlt}
+      companyName={data.companyName}
       phone={data.phone}
     />
     <main id='main'>
-      <slot />
+      <Intro
+        companyName={data.companyName}
+        email={data.email}
+      />
+      <SectionOne />
+      <SectionBoxed />
+      <PhotoDivider />
+      <SectionAbout />
     </main>
     <Footer
       addressLine1={data.addressLine1}

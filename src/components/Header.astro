@@ -1,14 +1,15 @@
 ---
 import { Image } from 'astro:assets';
-import LogoMobile from '../img/Square-One-Brand-Icon-Green.svg';
-import LogoDesktop from '../img/Square-One-Brand-Logo.svg';
+import LogoMobile from '../images/Square-One-Brand-Icon-Green.svg';
+import LogoDesktop from '../images/Square-One-Brand-Logo.svg';
 
 export interface Props {
   alt?: string;
+  companyName?: string;
   phone?: string;
 }
 
-const { alt, phone } = Astro.props as Props;
+const { alt, companyName, phone } = Astro.props as Props;
 ---
 <header>
   <div class="row">
@@ -22,7 +23,7 @@ const { alt, phone } = Astro.props as Props;
     </div>
     <div class="col-6">
       <h1 class="tagline">Sash Window Renovations</h1>
-      <a href=`tel:${ phone }` class="button primary">Call Us</a>
+      <a href=`tel:${ phone }` title={`Telephone ${ companyName }`} class="button primary solid">Call Us</a>
     </div>
   </div>
 </header>

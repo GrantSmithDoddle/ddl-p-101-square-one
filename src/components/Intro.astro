@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import BristolHouse from '../images/bristol-house-4by3.jpg';
+import UnderLine from '../components/fragments/underline.astro';
+
+export interface Props {
+  companyName?: string;
+  email?: string;
+}
+
+const { companyName, email } = Astro.props as Props;
+---
+<section class="full-with-split-screen">
+  <div class="copy flow">
+    <h1 class="h1">We're passionate about what we do - and what we don't do.</h1>
+    <UnderLine />
+    <p>We don't just recover, we renovate. We don't just repair, we resurrect. We don't just replace, we re-use. We don't just reconstruct, we restore.</p>
+    <a href=`mailto:${ email }` title={`Email ${ companyName }`} class="button ghost fw-mobile">Request an Estimate</a>
+  </div>
+  <picture class="ratio-4by3">
+    <Image src={BristolHouse} alt="Renovated Bristol Property" />
+  </picture>
+</section>
+
+<style lang="scss">
+  @use '../config/colour';
+  @use '../config/core';
+  @use '../config/breakpoints';
+
+  $wrapper-padding-large: 2rem;
+  
+  .full-with-split-screen {
+    background: colour.$primary;
+
+    .copy {
+      padding-inline: 1rem;
+      padding-block: 4rem;
+
+      h1, p {
+        max-width: 40ch;
+        color: colour.$white;
+      }
+    }
+  }
+
+  @include breakpoints.breakpoint(ipadMini){
+    .full-with-split-screen {
+      display: grid;
+      grid-template-columns:
+        minmax($wrapper-padding-large, 1fr)
+        minmax(0, calc(core.$max-width-desktop / 2))
+        minmax(0, calc(core.$max-width-desktop / 2))
+        minmax($wrapper-padding-large, 1fr);
+
+      picture {
+        grid-column: 3 / -1;
+        grid-row: 1;
+      }
+
+      .copy {
+        display: grid;
+        grid-column: 2 / 3;
+        grid-row: 1;
+        align-content: center;
+        justify-items: start;
+        padding-inline-start: 0rem;
+        padding-inline-end: clamp(1rem, 5vw, 3rem);
+        padding-block: 3rem;
+      }
+    }
+  }
+</style>

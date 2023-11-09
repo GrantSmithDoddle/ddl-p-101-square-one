@@ -3,28 +3,42 @@
 @use '../../config/fonts';
 
 .button {
+  appearance: none;
+  cursor: pointer;
+  border: 1px solid;
+  border-radius: 6px;
   display: inline-block;
   font-family: fonts.$secondary;
   font-size: fonts.$size-4;
-  line-height: 1;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  padding: 0.75rem 1.5rem;
   text-align: center;
   text-decoration: none;
-  border: 2px solid;
-  border-radius: 0.25rem;
-  cursor: pointer;
   transition: all 0.3s ease;
-  appearance: none;
-  padding: 0.75rem 1.5rem;
-  letter-spacing: 1.5px;
 
   &.primary {
-    color: colour.$white;
-    background: colour.$primary;
-    border-color: colour.$primary;
+    &.solid {
+      color: colour.$white;
+      background: lighten(colour.$primary, 12%);
+      border-color: colour.$primary;
 
-    &:hover {
-      background: darken(colour.$primary, 12%);
-      border-color: darken(colour.$primary, 12%);
+      &:hover {
+        background: lighten(colour.$primary, 6%);
+        border-color: colour.$primary;
+      }
+    }
+
+    &.outline {
+      color: colour.$secondary;
+      background: transparent;
+      border-color: colour.$primary;
+
+      &:hover {
+        color: colour.$black;
+        background: lighten(colour.$primary, 48%);
+        border-color: darken(colour.$primary, 12%);
+      }
     }
   }
 
@@ -36,6 +50,17 @@
     &:hover {
       background: darken(colour.$secondary, 12%);
       border-color: darken(colour.$secondary, 12%);
+    }
+  }
+
+  &.ghost {
+    color: colour.$white;
+    background: lighten(colour.$primary, 12%);
+    border-color: colour.$primary;
+
+    &:hover {
+      background: lighten(colour.$primary, 6%);
+      border-color: colour.$primary;
     }
   }
 

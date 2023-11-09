@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import Img01 from '../images/square-one-work-01.jpg';
+import Img02 from '../images/square-one-work-02.jpg';
+import Img03 from '../images/square-one-work-03.jpg';
+import Img04 from '../images/square-one-work-04.jpg';
+import Img05 from '../images/square-one-work-05.jpg';
+---
+<section>
+  <div class="photo-divider--row">
+    <div class="photo-divider--img">
+      <Image src={ Img01 } alt="Example of work crafted by Square One, Bristol">
+    </div>
+    <div class="photo-divider--img">
+      <Image src={ Img02 } alt="Example of work crafted by Square One, Bristol">
+    </div>
+    <div class="photo-divider--img">
+      <Image src={ Img03 } alt="Example of work crafted by Square One, Bristol">
+    </div>
+    <div class="photo-divider--img">
+      <Image src={ Img04 } alt="Example of work crafted by Square One, Bristol">
+    </div>
+    <div class="photo-divider--img">
+      <Image src={ Img05 } alt="Example of work crafted by Square One, Bristol">
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../config/breakpoints';
+
+  .photo-divider--row {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+
+    .photo-divider--img {
+      aspect-ratio: 4 / 3;
+
+      &:nth-child(4),
+      &:nth-child(5) {
+        display: none;
+
+        @include breakpoints.breakpoint(ipadMini){
+          display: block;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+</style>

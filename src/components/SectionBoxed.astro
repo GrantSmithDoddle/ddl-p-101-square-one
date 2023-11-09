@@ -1,0 +1,119 @@
+---
+import { Image } from 'astro:assets';
+import Windows from '../images/windows-square-one.jpg';
+import Floors from '../images/floors-square-one.jpg';
+import Masonry from '../images/masonry-square-one.jpg';
+
+---
+<section class="section-boxed">
+  <div class="flex-row">
+    <div class="flex-row--50">
+      <Image src={ Windows } alt="Stained glass, sash windows, replacement glass, casements">
+    </div>
+    <div class="flex-row--50 flow">
+      <h3 class="title">Windows</h3>
+      <h4 class="h4">Stained glass, sash windows, replacement glass, casements</h4>
+      <p class="small">One client brought us a beautiful but dilapidated stained glass window he never thought could be repaired. We not only got it re-soldered back into its original shape and looking amazing, we sealed it in a contemporary double-glazed unit and used it during his reconstruction in a key point in the hallway, creating a fantastic feature - not only beautiful but practical as well.</p>
+    </div>
+  </div>
+  <div class="flex-row">
+    <div class="flex-row--50">
+      <Image src={ Floors } alt="Wood, marble, stone, levelling, restoring, replacing">
+    </div>
+    <div class="flex-row--50 flow">
+      <h3 class="title">Floors</h3>
+      <h4 class="h4">Wood, marble, stone, levelling, restoring, replacing</h4>
+      <p class="small">One floor we worked with was uneven, as it had originally run between two different rooms at slightly different heights. The client had been given quotes to lay new boards over parts of the floor or put in a step between the two heights. Instead we took up the whole floor, levelled it underneath and re-laid the original boards, fully restored, over the top, with slivers of matching wood laid to fill in the gaps between some of the planks. The result? A flawless, perfectly smooth finish the client had not dreamed of.</p>
+    </div>
+  </div>
+  <div class="flex-row">
+    <div class="flex-row--50">
+      <Image src={ Masonry } alt="Traditional lime and modern plaster, water damage, rebuilds, opening up rooms, new walls built in original style">
+    </div>
+    <div class="flex-row--50 flow">
+      <h3 class="title">Masonry</h3>
+      <h4 class="h4">Traditional lime and modern plaster, water damage, rebuilds, opening up rooms, new walls built in original style</h4>
+      <p class="small">One renovation client was looking to make good an entire ground floor, but had come across some crumbling walls. We realised they were made of a low-grade lime construction, so while we didn’t want to tear down the traditional materials we had to complete the work safely and in keeping. We developed a new semi-lime plaster and took down only as much of the original as was threatening the house structure, restoring and replacing the rest. The result - a beautiful house, as close to the original as possible, but offering a modern, professional finish that could be safely decorated.</p>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../config/breakpoints';
+  @use '../config/colour';
+  @use '../config/core';
+  @use '../config/fonts';
+
+  .section-boxed {
+    .flex-row {
+      margin-top: 3rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      .flex-row--50 {
+        &:last-of-type {
+          background-color: colour.$grey-very-light;
+          padding-block: 3.5rem;
+          padding-inline: 1.5rem;
+
+          .h4 {
+            font-size: fonts.$size-4;
+          }
+        }
+      }
+    }
+
+    img {
+      aspect-ratio: 4 / 3;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @include breakpoints.breakpoint(ipadMini){
+    .section-boxed {
+      .flex-row {
+        display: flex;
+        flex-direction: row;
+        gap: 3rem;
+
+        &:nth-child(even) {
+          flex-direction: row-reverse;
+        }
+
+        .flex-row--50 {
+          flex: 1 1 35%;
+
+          &:last-of-type {
+            display: flex;
+            flex: 1 1 65%;
+            flex-direction: column;
+            justify-content: center;
+            padding-inline: 3rem;
+          }
+        }
+
+        img {
+          aspect-ratio: 1 / 1;
+        }
+      }
+    }
+  }
+
+  @include breakpoints.breakpoint(macbook){
+    .section-boxed {
+      .flex-row {
+        .flex-row--50 {
+          flex: 1 1 45%;
+
+          &:last-of-type {
+            flex: 1 1 55%;
+          }
+        }
+      }
+    }
+  }
+</style>
