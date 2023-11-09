@@ -1,0 +1,38 @@
+@use '../config/breakpoints';
+@use '../config/scale';
+
+.flow-xs > * + * {
+  margin-top: scale.$size-4;
+}
+
+.flow-sm > * + * {
+  margin-top: scale.$size-8;
+}
+
+.flow > * + * {
+  margin-top: scale.$size-16;
+}
+
+.flow-m > * + * {
+  margin-top: scale.$size-18;
+
+  @include breakpoints.breakpoint(ipadPro) {
+    margin-top: scale.$size-32;
+  }
+}
+
+.flow-l > * + * {
+  margin-top: scale.$size-32;
+
+  @include breakpoints.breakpoint(ipadPro) {
+    margin-top: scale.$size-64;
+  }
+}
+
+.flow-xl > * + * {
+  margin-top: scale.$size-64;
+
+  @include breakpoints.breakpoint(ipadPro) {
+    margin-top: scale.$size-160;
+  }
+}

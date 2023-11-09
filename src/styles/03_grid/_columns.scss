@@ -1,0 +1,131 @@
+@use '../config/breakpoints';
+@use '../config/core';
+
+[class^='col-'] {
+  position: relative;
+
+  img,
+  iframe {
+    max-width: 100%;
+  }
+}
+
+// col-l-1 through col-l-12 column classes for xl
+@include breakpoints.breakpoint(mobile) {
+  .row,
+  .sub-row {
+    @for $s from 1 through core.$cols {
+      @for $i from 1 through core.$cols {
+        .col-#{$i} {
+          display: block;
+          grid-column: auto / span 1;
+        }
+
+        .col-#{$s}-#{$i} {
+          display: block;
+          grid-column: auto / span 1;
+        }
+
+        .col-mobile-0 {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// col-m-1 through col-m-12 column classes for l
+@include breakpoints.breakpoint(ipadMini) {
+  .row,
+  .sub-row {
+    @for $s from 1 through core.$cols {
+      @for $i from 1 through core.$cols {
+        // Base Column Classes
+        .col-#{$i} {
+          display: block;
+          grid-column: auto / span $i;
+        }
+
+        .col-#{$s}-#{$i} {
+          display: block;
+          grid-column: ($s + 1) / span $i;
+        }
+
+        .col-ipadMini-0 {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// col-l-1 through col-l-12 column classes for l
+@include breakpoints.breakpoint(ipadPro) {
+  .row,
+  .sub-row {
+    @for $s from 1 through core.$cols {
+      @for $i from 1 through core.$cols {
+        // Base Column Classes
+        .col-ipadPro-#{$i} {
+          display: block;
+          grid-column: auto / span $i;
+        }
+
+        .col-ipadPro-#{$s}-#{$i} {
+          display: block;
+          grid-column: ($s + 1) / span $i;
+        }
+
+        .col-ipadPro-0 {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// col-xl-1 through col-xl-12 column classes for xl
+@include breakpoints.breakpoint(macbook) {
+  .row,
+  .sub-row {
+    @for $s from 1 through core.$cols {
+      @for $i from 1 through core.$cols {
+        .col-macbook-#{$i} {
+          display: block;
+          grid-column: auto / span $i;
+        }
+
+        .col-macbook-#{$s}-#{$i} {
+          display: block;
+          grid-column: ($s + 1) / span $i;
+        }
+
+        .col-macbook-0 {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// col-xxl-1 through col-xl-12 column classes for xxl
+@include breakpoints.breakpoint(imac) {
+  .row,
+  .sub-row {
+    @for $s from 1 through core.$cols {
+      @for $i from 1 through core.$cols {
+        .col-imac-#{$i} {
+          display: block;
+          grid-column: auto / span $i;
+        }
+        .col-imac-#{$s}-#{$i} {
+          display: block;
+          grid-column: ($s + 1) / span $i;
+        }
+        .col-imac-0 {
+          display: none;
+        }
+      }
+    }
+  }
+}

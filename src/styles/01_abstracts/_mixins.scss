@@ -1,0 +1,5 @@
+@use "sass:math";
+
+@mixin image($w, $h) {
+  padding-top: math.percentage(math.div($h, $w));
+}

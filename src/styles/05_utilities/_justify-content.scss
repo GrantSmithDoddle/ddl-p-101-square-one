@@ -1,0 +1,11 @@
+@use '../config/breakpoints';
+
+.center {
+  text-align: center;
+  justify-self: center;
+}
+
+.right {
+  text-align: right;
+  justify-self: end;
+}

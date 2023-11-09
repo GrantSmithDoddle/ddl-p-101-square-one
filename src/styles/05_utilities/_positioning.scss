@@ -1,0 +1,42 @@
+@use '../config/scale';
+@use '../config/breakpoints';
+
+.mt {
+  margin-top: scale.$size-18;
+}
+
+.mt-l {
+  margin-top: scale.$size-18;
+
+  @include breakpoints.breakpoint(ipadPro) {
+    margin-top: scale.$size-64;
+  }
+}
+
+.mt-xl {
+  margin-top: scale.$size-18;
+
+  @include breakpoints.breakpoint(ipadPro) {
+    margin-top: scale.$size-160;
+  }
+}
+
+.pad {
+  padding-block: scale.$size-18;
+}
+
+.pad-l {
+  padding-block: scale.$size-18;
+
+  @include breakpoints.breakpoint(ipadPro) {
+    padding-block: scale.$size-64;
+  }
+}
+
+.pad-xl {
+  padding-block: scale.$size-18;
+
+  @include breakpoints.breakpoint(ipadPro) {
+    padding-block: scale.$size-160;
+  }
+}

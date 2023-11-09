@@ -1,0 +1,70 @@
+@use '../config/_colour.scss';
+
+#hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  text-decoration: none;
+
+  appearance: none;
+  cursor: pointer;
+
+  .line {
+    position: relative;
+    display: inline-block;
+  }
+
+  .line,
+  .line::after,
+  .line::before {
+    content: '';
+    width: 35px;
+    height: 4px;
+    background-color: colour.$black;
+    transition:
+      top 0.3s ease-in-out 0.5s,
+      transform 0.3s ease-in-out;
+    transform-origin: center center;
+  }
+
+  .line::before {
+    position: absolute;
+    top: -11px;
+    display: block;
+  }
+
+  .line::after {
+    position: absolute;
+    top: 11px;
+    display: block;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.is-active {
+    .line {
+      transition: transform 0.3s ease-in-out 0.5s;
+      transform: rotate(45deg);
+
+      &::before,
+      &::after {
+        top: 0;
+        transition:
+          top 0.3s ease-in-out,
+          transform 0.3s ease-in-out 0.5s;
+      }
+
+      &::before {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}

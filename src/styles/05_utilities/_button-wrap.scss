@@ -1,0 +1,17 @@
+@use '../config/breakpoints';
+@use '../config/scale';
+
+.button-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: scale.$size-16;
+  align-items: baseline;
+
+  @include breakpoints.breakpoint(ipadMini) {
+    flex-direction: row;
+  }
+
+  &.stack {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,24 @@
+@use '../config/breakpoints';
+@use '../config/scale';
+@use '../config/core';
+
+.auto-row {
+  display: grid;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  grid-template-columns: 1fr;
+  gap: scale.$size-32;
+
+  @include breakpoints.breakpoint(ipadMini) {
+    grid-template-columns: repeat(auto-fit, minmax(276px, 1fr));
+  }
+
+  @include breakpoints.breakpoint(ipadPro) {
+    grid-template-columns: repeat(auto-fit, minmax(237px, 1fr));
+  }
+
+  @include breakpoints.breakpoint(macbook) {
+    grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
+  }
+}

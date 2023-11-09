@@ -1,0 +1,61 @@
+@use 'sass:meta';
+
+@use '../config/colour';
+@use '../config/fonts' as *;
+@use '../config/core';
+
+// Global styles start
+html {
+  @if meta.global-variable-exists('primary') {
+    font-family: $primary;
+    font-size: $base;
+  }
+  font-weight: 400;
+  font-style: normal;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+
+  body {
+    @if core.$bg {
+      background: colour.$body;
+      color: colour.$text;
+    }
+
+    &.noscroll {
+      overflow: hidden;
+    }
+  }
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+
+  @if core.$bg {
+    color: colour.$link;
+  }
+
+  &:hover {
+    transition-duration: core.$transition;
+
+    @if core.$bg {
+      color: colour.$link-hover;
+    }
+  }
+}
+
+@if core.$outlines {
+  :focus {
+    outline: 2px dashed lighten(colour.$link, 10%);
+    outline-offset: 0.25rem;
+  }
+
+  main:focus {
+    outline: none;
+  }
+
+  ::selection {
+    background: lighten(colour.$link, 10%);
+    color: colour.$black;
+  }
+}

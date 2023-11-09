@@ -1,0 +1,57 @@
+@use '../config/colour';
+
+.faq {
+  padding: 1rem 0;
+
+  &__title {
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+
+    .status {
+      position: relative;
+      overflow: visible;
+      width: 20px;
+      height: 2px;
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: colour.$black;
+        transition: transform 0.2s ease;
+        transform-origin: center;
+      }
+
+      &::after {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__content {
+    transition: all 0.2s ease;
+  }
+
+  &.active {
+    .faq__title {
+      .status {
+        &::before,
+        &::after {
+          background: colour.$black;
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .faq__content {
+      display: block;
+    }
+  }
+}

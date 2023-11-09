@@ -1,0 +1,7 @@
+@mixin breakpoint( $size ) {
+  @if $size == mobile { @media ( max-width: 734px ) { @content; } }
+  @if $size == ipadMini { @media ( min-width: 744px ) { @content; } }
+  @if $size == ipadPro { @media ( min-width: 1024px ) { @content; } }
+  @if $size == macbook { @media ( min-width: 1366px ) { @content; } }
+  @if $size == imac { @media ( min-width: 1536px ) { @content; } }
+}

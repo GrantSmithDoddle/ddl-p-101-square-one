@@ -1,0 +1,8 @@
+// Remove all base HTML presets
+@forward 'reset';
+
+// Doddle preferred base styling
+@forward 'base';
+
+// Defined section spacing inside an article tag
+@forward 'spacing';

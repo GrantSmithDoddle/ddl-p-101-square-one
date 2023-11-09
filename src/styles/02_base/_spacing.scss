@@ -1,0 +1,21 @@
+@use '../config/core';
+
+// Too opinionated
+// article {
+//   > section {
+//     padding-block: core.$row-space 0;
+
+//     &.callout {
+//       margin-top: core.$row-space;
+//       padding-block: core.$row-space;
+//     }
+
+//     &:last-child:not(.callout) {
+//       padding-block: core.$row-space;
+//     }
+//   }
+// }
+
+footer {
+  padding-block: core.$row-space;
+}

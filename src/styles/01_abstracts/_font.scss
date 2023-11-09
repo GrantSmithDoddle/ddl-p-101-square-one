@@ -1,0 +1,35 @@
+// WEIGHT
+$light: 300 !default;
+$normal: 400 !default;
+$semi: 600 !default;
+$bold: 700 !default;
+
+// SIZE
+// Calculator https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/#for-those-who-dont-mind-that-edge-case
+$base: 16px !default;
+
+// Pre-Title / Input Label (10.24px — 11.52px)
+$size-1: clamp(0.64rem, 0.6240rem + 0.0800vw, 0.72rem) !default;
+// Small (12.80px — 14.40px)
+$size-2: clamp(0.8rem, 0.7800rem + 0.1000vw, 0.9rem) !default;
+// Body / Button Label (16px — 18px)
+$size-3: clamp(1rem, 0.9750rem + 0.1250vw, 1.125rem) !default;
+// Subtitle / Large Body (20px — 22.50px)
+$size-4: clamp(1.25rem, 1.2188rem + 0.1560vw, 1.406rem) !default;
+// H4 (25px — 28.13px)
+$size-5: clamp(1.563rem, 1.5240rem + 0.1950vw, 1.758rem) !default;
+// H3 (31.25px — 35.16px)
+$size-6: clamp(1.953rem, 1.9040rem + 0.2450vw, 2.198rem) !default;
+// H2 (39.06px — 43.95px)
+$size-7: clamp(2.441rem, 2.3798rem + 0.3060vw, 2.747rem) !default;
+// H1 (48.83px — 54.93px)
+$size-8: clamp(3.052rem, 2.9758rem + 0.3810vw, 3.433rem) !default;
+
+
+// LEADING
+$loose: 1.7 !default;
+$tight: 1.3 !default;
+$flat: 1.1 !default;
+
+// Max paragraph width
+$paragraph-width: 70ch !default;

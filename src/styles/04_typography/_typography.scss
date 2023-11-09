@@ -1,0 +1,38 @@
+@use 'sass:meta';
+
+@use '../config/fonts';
+
+@if meta.global-variable-exists('primary') {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: $primary;
+    line-height: fonts.$flat;
+  }
+
+  h1,
+  .h1 {
+    font-size: fonts.$size-8;
+  }
+
+  h2,
+  .h2 {
+    font-size: fonts.$size-7;
+  }
+
+  h3,
+  .h3 {
+    font-size: fonts.$size-6;
+  }
+
+  h4,
+  .h4 {
+    font-size: fonts.$size-5;
+  }
+
+  p,
+  li {
+    font-size: fonts.$size-3;
+  }
+}
