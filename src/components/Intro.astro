@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import BristolHouse from '../images/bristol-house-4by3.jpg';
-import UnderLine from '../components/fragments/underline.astro';
 
 export interface Props {
   companyName?: string;
@@ -13,7 +12,6 @@ const { companyName, email } = Astro.props as Props;
 <section class="full-with-split-screen">
   <div class="copy flow">
     <h1 class="h1">We're passionate about what we do - and what we don't do.</h1>
-    <UnderLine />
     <p>We don't just recover, we renovate. We don't just repair, we resurrect. We don't just replace, we re-use. We don't just reconstruct, we restore.</p>
     <a href=`mailto:${ email }` title={`Email ${ companyName }`} class="button ghost fw-mobile">Request an Estimate</a>
   </div>

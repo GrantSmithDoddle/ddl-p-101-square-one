@@ -21,11 +21,11 @@
     &.solid {
       color: colour.$white;
       background: lighten(colour.$primary, 12%);
-      border-color: colour.$primary;
+      border-color: lighten(colour.$primary, 12%);
 
       &:hover {
         background: lighten(colour.$primary, 6%);
-        border-color: colour.$primary;
+        border-color: lighten(colour.$primary, 6%);
       }
     }
 
@@ -56,11 +56,11 @@
   &.ghost {
     color: colour.$white;
     background: lighten(colour.$primary, 12%);
-    border-color: colour.$primary;
+    border-color: lighten(colour.$primary, 12%);
 
     &:hover {
       background: lighten(colour.$primary, 6%);
-      border-color: colour.$primary;
+      border-color: lighten(colour.$primary, 6%);
     }
   }
 
