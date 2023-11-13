@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
-  <style>svg{fill:#c8cccf}</style>
-  <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
+<svg width="100%" height="100%" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-250,0)">
+        <path d="M251.125,1.5C250.504,1.5 250,2.004 250,2.625C250,2.979 250.166,3.312 250.45,3.525L255.55,7.35C255.817,7.549 256.183,7.549 256.45,7.35L261.55,3.525C261.834,3.312 262,2.979 262,2.625C262,2.004 261.496,1.5 260.875,1.5L251.125,1.5ZM250,4.125L250,9C250,9.827 250.673,10.5 251.5,10.5L260.5,10.5C261.327,10.5 262,9.827 262,9L262,4.125L256.9,7.95C256.366,8.351 255.634,8.351 255.1,7.95L250,4.125Z" style="fill:rgb(200,204,207);fill-rule:nonzero;"/>
+    </g>
 </svg>

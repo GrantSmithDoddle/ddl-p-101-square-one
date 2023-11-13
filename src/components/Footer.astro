@@ -2,6 +2,9 @@
 import { Image } from 'astro:assets';
 import Logo from '../images/Square-One-Brand-Icon-Grey.svg';
 import Socials from '../components/Socials.astro';
+import Location from '../images/icon-location.svg';
+import Phone from '../images/icon-phone.svg';
+import Email from '../images/icon-email.svg';
 
 export interface Props {
   addressLine1?: string;
@@ -22,15 +25,15 @@ const { addressLine1, addressLine2, alt, city, companyName, companyTagline, emai
     <div class="col-6">
       <h2 class="title">Contact Us</h2>
       <ul class="contact-info">
-        <li class="address">{ addressLine1 }, { addressLine2 }, { city }&nbsp;{ postcode }</li>
-        <li class="telephone"><a href={`tel:${ phone }`} target="blank" title="Call Square One">Call Square One</a></li>
-        <li class="email"><a href={`mailto:${ email }`} target="blank" title="Email Sqaure One">Email Sqaure One</a></li>
+        <li><Image src={ Location } alt="Located in Bristol" width='15' height='15' loading="lazy"/> { addressLine1 }, { addressLine2 }, { city }&nbsp;{ postcode }</li>
+        <li><a href={`tel:${ phone }`} target="blank" title="Call Square One"><Image src={ Phone } alt="Phone Square One" width='15' height='15' loading="lazy"/>Call Square One</a></li>
+        <li><a href={`mailto:${ email }`} target="blank" title="Email Sqaure One"><Image src={ Email } alt="Email Square One" width='15' height='15' loading="lazy"/>Email Sqaure One</a></li>
       </ul>
       <Socials />
     </div>
     <div class="col-6 flow">
       <p class="small">It costs nothing to start a conversation.</p>
-      <p class="small">We'd love to find out more about you and your own project. Please feel comfortable to pick up the phone or drop us a line, with no obligation - we won’t give you any hard-sell, that’s not our style. We just love getting excited about the possibilities in bringing a building back to its former glory - whether that’s Edwardian, Georgian, Victorian, Regency - even the 1960s!</p>
+      <p class="small">We'd love to find out more about you and your own project. Please feel comfortable to pick up the phone or drop us a line, with no obligation - we won't give you any hard-sell, that's not our style. We just love getting excited about the possibilities in bringing a building back to its former glory - whether that’s Edwardian, Georgian, Victorian, Regency - even the 1960s!</p>
       <a href=`mailto:${ email }` title={`Email ${ companyName }`} class="button primary solid fw-mobile">Request an Estimate</a>
     </div>
   </div>
@@ -59,9 +62,6 @@ const { addressLine1, addressLine2, alt, city, companyName, companyTagline, emai
   @use '../styles/config/fonts';
 
   $wrapper-padding-large: 2rem;
-  // $address: '../images/icon-location.svg';
-  // $phone: '../images/icon-phone.svg';
-  // $email: '../images/icon-email.svg';
 
   footer {
     padding-block: 0px;
@@ -74,34 +74,17 @@ const { addressLine1, addressLine2, alt, city, companyName, companyTagline, emai
 
       li {
         display: flex;
+        flex-direction: row;
         align-items: center;
         gap: 0.5rem;
         font-weight: fonts.$medium;
 
-        &.address::before,
-        &.telephone::before,
-        &.email::before {
-          content: '';
-          display: inline-block;
-          width: 15px;
-          height: 15px;
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-
-        &.address::before {
-          background-image: url('../images/icon-location.svg');
-        }
-  x
-        &.telephone::before {
-          background-image: url('../images/icon-location.svg');
-        }
-
-        &.email::before {
-          background-image: url('../images/icon-email.svg');
-        }
-
         a {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 0.5rem;
+          font-weight: fonts.$medium;
           color: colour.$secondary;
           text-decoration: none;
           transition: all 0.2s ease-in-out;
