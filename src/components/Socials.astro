@@ -1,0 +1,48 @@
+---
+import data from '../data/companyData.json';
+import { Image } from 'astro:assets';
+import FaceBook from '../images/icon-facebook.svg'
+import WhatsApp from '../images/icon-whatsapp.svg'
+import Instagram from '../images/icon-instagram.svg'
+
+export interface Props {
+  SocialFacebook?: string;
+  SocialWhatsApp?: string;
+}
+const { SocialFacebook, SocialWhatsApp } = Astro.props as Props;
+---
+<ul class="socials">
+  <li><a href={data.SocialFacebook} target="blank" title="Contact us via Facebook"><Image src={ FaceBook } alt="Contact us via FaceBook" width='30' height='30' loading="lazy"/></a></li>
+  <li><a href={data.SocialInstagram} target="blank" title="Contact us via Instagram"><Image src={ Instagram } alt="Contact us via Instagram" width='30' height='30' loading="lazy"/></a></li>
+  <li><a href={data.SocialWhatsApp} target="blank" title="Contact us via WhatsApp"><Image src={ WhatsApp } alt="Contact us via WhatsApp" width='30' height='30' loading="lazy"/></a></li>
+</ul>
+
+<style lang="scss">
+  .socials {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      margin-inline-end: 0.5rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+</style>

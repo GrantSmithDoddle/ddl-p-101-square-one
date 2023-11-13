@@ -1,8 +1,8 @@
 {
   "companyName": "Square One",
   "companyTagline": "Sash Window Renovations",
-  "URL": "https://squareonerenovations.co.uk",
-  "addressLine1": "8 Hawthorn Street",
+  "URL": "https://www.squareonerenovation.com/",
+  "addressLine1": "Hawthorn Street",
   "addressLine2": "Lockleaze",
   "city": "Bristol",
   "postcode": "BS7 9FP",
@@ -12,5 +12,8 @@
   "longitude": "-2.574610",
   "metaTitle": "Square One Renovations",
   "metaDescription": "We don't just recover, we renovate. We don't just repair, we resurrect. We don't just replace, we re-use. We don't just reconstruct, we restore.",
-  "metaImageAlt": "Square One, Sash Windows Renovations"
+  "metaImageAlt": "Square One, Sash Windows Renovations",
+  "SocialFacebook": "https://www.facebook.com/SquareOneDecorators",
+  "SocialWhatsApp": "https://wa.me/447834725324",
+  "SocialInstagram": "https://instagram.com/kieronmahoney?igshid=MTloYnlkYzJpYWdu&utm_source=qr"
 }

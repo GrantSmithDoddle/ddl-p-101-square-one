@@ -7,3 +7,11 @@ section:not([class]) {
 .about {
   padding-block: $paddingAmount;
 }
+
+footer {
+  .row.top {
+    &:first-of-type {
+      padding-block: $paddingAmount;
+    }
+  }
+}
